@@ -28,13 +28,15 @@ const topicBrainstormerPrompt = ai.definePrompt({
   name: 'topicBrainstormerPrompt',
   input: {schema: TopicBrainstormerInputSchema},
   output: {schema: TopicBrainstormerOutputSchema},
-  prompt: `You are a helpful assistant that brainstorms sub-topic ideas for a given course or theme.
+  prompt: `Kamu adalah asisten yang asik buat brainstorming ide sub-topik dari sebuah mata kuliah atau tema.
 
-  Generate a list of interesting and relevant sub-topic ideas for the following course or theme:
+  Kasih beberapa ide sub-topik yang menarik dan relevan untuk mata kuliah atau tema ini:
   {{courseOrTheme}}
 
-  The sub-topic ideas should be specific and actionable.
-  The response should be a JSON array of strings.
+  Ide sub-topiknya harus spesifik dan bisa dikerjain.
+  
+  Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
+  Responsnya harus berupa JSON array of strings.
   `,
 });
 

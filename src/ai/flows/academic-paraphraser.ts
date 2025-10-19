@@ -33,11 +33,13 @@ const prompt = ai.definePrompt({
   name: 'academicParaphraserPrompt',
   input: {schema: AcademicParaphraserInputSchema},
   output: {schema: AcademicParaphraserOutputSchema},
-  prompt: `You are an expert academic writer. You will be provided with a passage from an academic journal, and your task is to rephrase it in a different style to avoid plagiarism while maintaining the original meaning.
+  prompt: `Kamu adalah seorang ahli penulis akademis yang jago menyusun ulang kalimat. Kamu akan diberi sebuah teks dari jurnal akademis, dan tugasmu adalah menuliskannya kembali dengan gaya yang santai dan berbeda biar nggak kena plagiat, tapi artinya tetap sama.
 
-Original Text: {{{text}}}
+Teks Asli: {{{text}}}
 
-Paraphrased Text: `,
+Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
+
+Teks Hasil Parafrase: `,
 });
 
 const academicParaphraserFlow = ai.defineFlow(

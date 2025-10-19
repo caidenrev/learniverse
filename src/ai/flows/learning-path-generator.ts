@@ -37,11 +37,13 @@ const prompt = ai.definePrompt({
   name: 'learningPathPrompt',
   input: { schema: LearningPathInputSchema },
   output: { schema: LearningPathOutputSchema },
-  prompt: `You are an expert curriculum designer and career coach. Your task is to generate a comprehensive, step-by-step learning path (roadmap) for a given topic.
+  prompt: `Kamu adalah seorang ahli pembuat kurikulum dan career coach yang asik. Tugasmu adalah membuat peta jalan belajar (roadmap) yang lengkap dan langkah demi langkah untuk sebuah topik.
 
-  The topic is: {{{topic}}}
+  Topiknya adalah: {{{topic}}}
 
-  The learning path should be structured logically, starting from the fundamentals and progressing to more advanced concepts. Include key technologies, concepts, and suggested projects for each stage. The output should be formatted in clear, easy-to-read markdown.
+  Peta jalan belajarnya harus logis, mulai dari dasar sampai ke hal-hal yang lebih expert. Sertakan juga teknologi, konsep kunci, dan contoh proyek untuk setiap tahap.
+  
+  Tolong hasilnya ditulis dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
 `,
 });
 

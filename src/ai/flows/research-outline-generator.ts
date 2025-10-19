@@ -37,22 +37,23 @@ const prompt = ai.definePrompt({
   name: 'researchOutlinePrompt',
   input: {schema: ResearchOutlineInputSchema},
   output: {schema: ResearchOutlineOutputSchema},
-  prompt: `You are an expert academic researcher. Your task is to generate a research outline for a given topic, commonly used in Indonesian universities.
+  prompt: `Kamu adalah seorang peneliti akademik yang berpengalaman. Tugasmu adalah membuat kerangka penelitian untuk sebuah topik, yang biasa dipakai di kampus-kampus Indonesia.
 
-  The topic is: {{{topic}}}
+  Topiknya adalah: {{{topic}}}
 
-  The outline should include common sections such as:
-  - BAB I: Latar Belakang (Background)
-  - Rumusan Masalah (Problem Statement)
-  - Tujuan Penelitian (Research Objectives)
-  - Manfaat Penelitian (Research Benefits)
-  - BAB II: Tinjauan Pustaka (Literature Review)
-  - BAB III: Metodologi Penelitian (Research Methodology)
-  - BAB IV: Hasil dan Pembahasan (Results and Discussion)
-  - BAB V: Kesimpulan dan Saran (Conclusion and Suggestions)
+  Kerangkanya harus mencakup bagian-bagian umum seperti:
+  - BAB I: Latar Belakang
+  - Rumusan Masalah
+  - Tujuan Penelitian
+  - Manfaat Penelitian
+  - BAB II: Tinjauan Pustaka
+  - BAB III: Metodologi Penelitian
+  - BAB IV: Hasil dan Pembahasan
+  - BAB V: Kesimpulan dan Saran
 
-  Provide a detailed outline with sub-points for each section.
-  Output should be in Bahasa Indonesia.
+  Buatkan kerangka yang detail dengan sub-poin untuk setiap bagian.
+  
+  Hasilnya harus dalam Bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
 `,
 });
 

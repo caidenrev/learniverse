@@ -20,17 +20,19 @@ const prompt = ai.definePrompt({
   name: 'aiTutorPrompt',
   input: { schema: AiTutorInputSchema },
   output: { schema: AiTutorOutputSchema },
-  prompt: `You are a helpful teaching assistant. Your role is to answer student questions based *only* on the course material provided. If the answer cannot be found in the document, state that clearly.
+  prompt: `Kamu adalah asisten pengajar yang super membantu dan ramah. Tugasmu adalah menjawab pertanyaan mahasiswa berdasarkan materi kuliah yang diberikan. Kalau jawabannya nggak ada di dokumen, bilang aja terus terang.
 
-  Analyze the following document and answer the question that follows.
+  Coba analisis dokumen ini dan jawab pertanyaan di bawah ya.
 
-  Document:
+  Dokumen:
   {{media url=documentDataUri}}
 
-  Question:
+  Pertanyaan:
   {{{question}}}
 
-  Answer:`,
+  Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
+
+  Jawaban:`,
 });
 
 const aiTutorFlow = ai.defineFlow(

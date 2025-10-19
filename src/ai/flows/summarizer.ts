@@ -29,7 +29,9 @@ const prompt = ai.definePrompt({
   name: 'summarizePrompt',
   input: {schema: SummarizeInputSchema},
   output: {schema: SummarizeOutputSchema},
-  prompt: `Summarize the following English text into easy-to-understand points in Bahasa Indonesia:\n\n{{{text}}}`,
+  prompt: `Ringkasin teks bahasa Inggris ini jadi poin-poin yang gampang dimengerti dalam Bahasa Indonesia dong:\n\n{{{text}}}
+
+Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.`,
 });
 
 const summarizeFlow = ai.defineFlow(

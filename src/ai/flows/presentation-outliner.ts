@@ -31,11 +31,13 @@ const presentationOutlinerPrompt = ai.definePrompt({
   name: 'presentationOutlinerPrompt',
   input: {schema: PresentationOutlineInputSchema},
   output: {schema: PresentationOutlineOutputSchema},
-  prompt: `You are an AI assistant specialized in creating presentation outlines.
-  Based on the presentation title provided, generate a detailed slide-by-slide outline.
-  The outline should include an introduction, main points, and a conclusion. Be creative and logical.
+  prompt: `Kamu adalah asisten AI yang jago bikin kerangka presentasi.
+  Berdasarkan judul presentasi yang dikasih, buat kerangka slide per slide yang detail.
+  Kerangkanya harus ada pendahuluan, poin-poin utama, dan kesimpulan. Buat yang kreatif dan logis ya.
 
-  Presentation Title: {{{title}}}
+  Judul Presentasi: {{{title}}}
+  
+  Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
   `, 
 });
 

@@ -30,12 +30,15 @@ const analogyFinderPrompt = ai.definePrompt({
   name: 'analogyFinderPrompt',
   input: {schema: AnalogyFinderInputSchema},
   output: {schema: AnalogyFinderOutputSchema},
-  prompt: `You are an expert at explaining complex technical concepts using simple analogies.
+  prompt: `Kamu jago banget jelasin konsep teknis yang ribet pake analogi yang gampang dimengerti.
 
-  Explain the following technical concept using an analogy that is easy to understand:
+  Coba jelasin konsep teknis ini pake analogi yang santai:
 
-  Technical Concept: {{{technicalConcept}}}
-  Analogy:`, // Removed unnecessary newlines and improved prompt for clarity
+  Konsep Teknis: {{{technicalConcept}}}
+  
+  Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.
+  
+  Analogi:`,
 });
 
 const analogyFinderFlow = ai.defineFlow(

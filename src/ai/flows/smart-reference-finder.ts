@@ -25,9 +25,11 @@ const smartReferenceFinderPrompt = ai.definePrompt({
   name: 'smartReferenceFinderPrompt',
   input: {schema: SmartReferenceFinderInputSchema},
   output: {schema: SmartReferenceFinderOutputSchema},
-  prompt: `You are an expert in academic research and terminology. I will provide you with an initial search term, and you will provide a list of alternative or related search terms that would be useful for finding relevant research on Google Scholar. Please return a comma separated list.
+  prompt: `Kamu adalah seorang ahli riset akademik dan istilah-istilahnya. Aku akan kasih kamu satu kata kunci awal, dan kamu kasih daftar kata kunci alternatif atau yang berhubungan yang bisa berguna buat cari referensi penelitian di Google Scholar. Tolong kembalikan dalam bentuk daftar yang dipisahkan koma.
 
-Initial term: {{{$input}}}`,
+Istilah awal: {{{$input}}}
+
+Hasilnya harus dalam bahasa Indonesia yang santai dan jangan pakai format markdown seperti bold atau heading.`,
 });
 
 const smartReferenceFinderFlow = ai.defineFlow(
