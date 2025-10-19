@@ -7,6 +7,7 @@ import {
   BookMarked,
   Quote,
   Languages,
+  Bot,
 } from 'lucide-react';
 
 interface MenuItem {
@@ -21,6 +22,16 @@ interface MenuGroup {
 }
 
 export const menuItems: MenuGroup[] = [
+  {
+    title: 'Asisten Belajar',
+    items: [
+      {
+        href: '/ai-tutor',
+        title: 'Tutor AI',
+        icon: Bot,
+      },
+    ],
+  },
   {
     title: 'Katalisator Ide',
     items: [

@@ -1,3 +1,4 @@
+'use server';
 import { config } from 'dotenv';
 config();
 
@@ -8,3 +9,4 @@ import '@/ai/flows/research-outline-generator.ts';
 import '@/ai/flows/smart-reference-finder.ts';
 import '@/ai/flows/topic-brainstormer.ts';
 import '@/ai/flows/academic-paraphraser.ts';
+import '@/ai/flows/ai-tutor.ts';
