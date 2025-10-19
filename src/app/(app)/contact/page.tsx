@@ -61,7 +61,7 @@ export default function ContactPage() {
         </p>
       </div>
 
-      <Card className="mx-auto max-w-lg">
+      <Card className="mx-auto max-w-2xl">
         <CardHeader>
           <CardTitle>Kirim Pesan</CardTitle>
         </CardHeader>
