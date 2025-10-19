@@ -58,7 +58,7 @@ export default function SummarizerPage() {
 
   return (
     <div className="space-y-8">
-      <div>
+      <div className="pt-4">
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
           Peringkas Jurnal
         </h1>
