@@ -1,3 +1,7 @@
+
+'use client';
+
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -12,9 +16,19 @@ import {
   Search,
   Bot,
   Map,
+  Menu,
+  X,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+import { Logo } from '@/components/logo';
 
 const features = [
   {
@@ -84,11 +98,13 @@ const features = [
 
 export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
+
   return (
     <div className="flex min-h-screen flex-col">
       <div className="container">
         <header className="flex items-center justify-between px-4 py-6">
-          <h1 className="font-headline text-3xl font-bold">EduAI</h1>
+          <Logo />
           <nav className="hidden items-center gap-6 md:flex">
             <Link
               href="/about"
@@ -103,6 +119,39 @@ export default function Home() {
               Kontak
             </Link>
           </nav>
+          <div className="md:hidden">
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Buka menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[240px]">
+                <SheetHeader>
+                  <SheetTitle>
+                    <Logo />
+                  </SheetTitle>
+                </SheetHeader>
+                <nav className="mt-8 flex flex-col gap-4">
+                  <Link
+                    href="/about"
+                    className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                    onClick={() => setIsSheetOpen(false)}
+                  >
+                    Tentang
+                  </Link>
+                  <Link
+                    href="/contact"
+                    className="text-lg font-medium text-foreground transition-colors hover:text-primary"
+                    onClick={() => setIsSheetOpen(false)}
+                  >
+                    Kontak
+                  </Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
+          </div>
         </header>
 
         <main className="flex-1">
@@ -139,7 +188,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="bg-muted/50 -mx-4 px-4 py-16 sm:mx-0 lg:py-24">
+          <section className="bg-muted/50 -mx-4 px-4 py-16 sm:mx-0 sm:px-6 lg:py-24">
             <div className="mx-auto">
               <div className="mx-auto mb-12 max-w-2xl text-center">
                 <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
