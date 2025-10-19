@@ -87,85 +87,85 @@ export default function Home() {
   const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-image');
   return (
     <div className="flex min-h-screen flex-col">
-      <header className="container mx-auto px-4 py-6">
-        <h1 className="font-headline text-3xl font-bold">EduAI</h1>
-      </header>
+      <div className="container">
+        <header className="px-4 py-6">
+          <h1 className="font-headline text-3xl font-bold">EduAI</h1>
+        </header>
 
-      <main className="flex-1">
-        <section className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 py-16 md:grid-cols-2 lg:py-24">
-          <div className="space-y-6">
-            <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Tingkatkan Kemampuan Belajarmu dengan AI
-            </h2>
-            <p className="text-lg text-muted-foreground md:text-xl">
-              Mulai dari brainstorming topik hingga meringkas jurnal yang
-              rumit, EduAI adalah asisten akademis lengkap untukmu. Atasi
-              kebuntuan menulis dan percepat proses belajarmu.
-            </p>
-            <div className="pt-4">
-              <Link href="/topic-brainstormer">
-                <Button size="lg" className="mt-4">
-                  Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="relative h-64 w-full overflow-hidden rounded-2xl shadow-2xl md:h-96">
-            {heroImage && (
-              <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={heroImage.imageHint}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-              />
-            )}
-          </div>
-        </section>
-
-        <section className="bg-muted/50 py-16 lg:py-24">
-          <div className="container mx-auto px-4">
-            <div className="mx-auto mb-12 max-w-2xl text-center">
-              <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
-                Satu Set Alat untuk Setiap Siswa
-              </h3>
-              <p className="mt-4 text-lg text-muted-foreground">
-                Semua yang Anda butuhkan untuk unggul dalam perjalanan akademis
-                Anda, didukung oleh AI generatif.
+        <main className="flex-1">
+          <section className="grid grid-cols-1 items-center gap-12 px-4 py-16 md:grid-cols-2 lg:py-24">
+            <div className="space-y-6">
+              <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
+                Tingkatkan Kemampuan Belajarmu dengan AI
+              </h2>
+              <p className="text-lg text-muted-foreground md:text-xl">
+                Mulai dari brainstorming topik hingga meringkas jurnal yang
+                rumit, EduAI adalah asisten akademis lengkap untukmu. Atasi
+                kebuntuan menulis dan percepat proses belajarmu.
               </p>
-            </div>
-            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature) => (
-                <Link
-                  href={feature.href}
-                  key={feature.title}
-                  className="flex"
-                >
-                  <Card className="flex flex-1 flex-col transition-all hover:ring-2 hover:ring-primary">
-                    <CardHeader className="flex flex-row items-center gap-4">
-                      <div className="rounded-full bg-primary/10 p-3 text-primary">
-                        {feature.icon}
-                      </div>
-                      <CardTitle className="font-headline text-xl">
-                        {feature.title}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex-1">
-                      <p className="text-muted-foreground">
-                        {feature.description}
-                      </p>
-                    </CardContent>
-                  </Card>
+              <div className="pt-4">
+                <Link href="/topic-brainstormer">
+                  <Button size="lg" className="mt-4">
+                    Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
                 </Link>
-              ))}
+              </div>
             </div>
-          </div>
-        </section>
+            <div className="relative h-64 w-full overflow-hidden rounded-2xl shadow-2xl md:h-96">
+              {heroImage && (
+                <Image
+                  src={heroImage.imageUrl}
+                  alt={heroImage.description}
+                  fill
+                  className="object-cover"
+                  data-ai-hint={heroImage.imageHint}
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+              )}
+            </div>
+          </section>
 
-        <section className="py-16 lg:py-24">
-          <div className="container mx-auto px-4">
+          <section className="bg-muted/50 -mx-4 px-4 py-16 sm:mx-0 lg:py-24">
+            <div className="mx-auto">
+              <div className="mx-auto mb-12 max-w-2xl text-center">
+                <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
+                  Satu Set Alat untuk Setiap Siswa
+                </h3>
+                <p className="mt-4 text-lg text-muted-foreground">
+                  Semua yang Anda butuhkan untuk unggul dalam perjalanan akademis
+                  Anda, didukung oleh AI generatif.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {features.map((feature) => (
+                  <Link
+                    href={feature.href}
+                    key={feature.title}
+                    className="flex"
+                  >
+                    <Card className="flex flex-1 flex-col transition-all hover:ring-2 hover:ring-primary">
+                      <CardHeader className="flex flex-row items-center gap-4">
+                        <div className="rounded-full bg-primary/10 p-3 text-primary">
+                          {feature.icon}
+                        </div>
+                        <CardTitle className="font-headline text-xl">
+                          {feature.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex-1">
+                        <p className="text-muted-foreground">
+                          {feature.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section className="px-4 py-16 lg:py-24">
             <div className="mx-auto max-w-3xl text-center">
               <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
                 Tentang EduAI
@@ -180,15 +180,15 @@ export default function Home() {
                 selalu tersedia 24/7.
               </p>
             </div>
-          </div>
-        </section>
-      </main>
+          </section>
+        </main>
 
-      <footer className="container mx-auto border-t px-4 py-6">
-        <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} EduAI. Seluruh hak cipta.
-        </p>
-      </footer>
+        <footer className="border-t px-4 py-6">
+          <p className="text-center text-sm text-muted-foreground">
+            © {new Date().getFullYear()} EduAI. Seluruh hak cipta.
+          </p>
+        </footer>
+      </div>
     </div>
   );
 }
