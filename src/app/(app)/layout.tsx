@@ -8,7 +8,13 @@ import {
 } from '@/components/ui/sidebar';
 import { type ReactNode } from 'react';
 
-export default function AppLayout({ children }: { children: ReactNode }) {
+export default function AppLayout({
+  children,
+  params: _, // Ignore params
+}: {
+  children: ReactNode;
+  params: { slug: string };
+}) {
   return (
     <SidebarProvider>
       <Sidebar collapsible="icon">
