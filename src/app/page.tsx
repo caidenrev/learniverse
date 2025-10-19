@@ -103,7 +103,7 @@ export default function Home() {
             </p>
             <div className="pt-4">
               <Link href="/topic-brainstormer">
-                <Button size="lg">
+                <Button size="lg" className="mt-4">
                   Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -159,6 +159,25 @@ export default function Home() {
                   </Card>
                 </Link>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="py-16 lg:py-24">
+          <div className="container mx-auto px-4">
+            <div className="mx-auto max-w-3xl text-center">
+              <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
+                Tentang EduAI
+              </h3>
+              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+                EduAI lahir dari gagasan untuk membuat teknologi AI canggih
+                dapat diakses oleh semua siswa. Kami percaya bahwa dengan alat
+                yang tepat, setiap orang dapat mengatasi tantangan akademis,
+                mempercepat proses belajar, dan mencapai potensi penuh mereka.
+                Misi kami adalah untuk memberdayakan siswa dengan menyediakan
+                asisten belajar bertenaga AI yang intuitif, membantu, dan
+                selalu tersedia 24/7.
+              </p>
             </div>
           </div>
         </section>
