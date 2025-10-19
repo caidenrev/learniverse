@@ -88,8 +88,22 @@ export default function Home() {
   return (
     <div className="flex min-h-screen flex-col">
       <div className="container">
-        <header className="px-4 py-6">
+        <header className="flex items-center justify-between px-4 py-6">
           <h1 className="font-headline text-3xl font-bold">EduAI</h1>
+          <nav className="hidden items-center gap-6 md:flex">
+            <Link
+              href="/about"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              Tentang
+            </Link>
+            <Link
+              href="/contact"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+            >
+              Kontak
+            </Link>
+          </nav>
         </header>
 
         <main className="flex-1">
