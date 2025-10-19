@@ -8,6 +8,7 @@ import {
   Quote,
   Languages,
   Bot,
+  Map,
 } from 'lucide-react';
 
 interface MenuItem {
@@ -29,6 +30,11 @@ export const menuItems: MenuGroup[] = [
         href: '/ai-tutor',
         title: 'Tutor AI',
         icon: Bot,
+      },
+      {
+        href: '/learning-path-generator',
+        title: 'Peta Jalan Belajar',
+        icon: Map,
       },
     ],
   },
