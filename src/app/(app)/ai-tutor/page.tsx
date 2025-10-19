@@ -19,7 +19,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 import { answerQuestion } from '@/ai/flows/ai-tutor';
-import type { AiTutorOutput } from '@/ai/flows/ai-tutor';
+import type { AiTutorOutput } from '@/ai/flows/ai-tutor-schemas';
 import { Loader2, HelpCircle, UploadCloud, Bot } from 'lucide-react';
 
 const formSchema = z.object({
