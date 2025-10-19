@@ -9,6 +9,8 @@ import {
   Languages,
   Bot,
   Map,
+  Info,
+  Mail,
 } from 'lucide-react';
 
 interface MenuItem {
@@ -80,6 +82,21 @@ export const menuItems: MenuGroup[] = [
         href: '/summarizer',
         title: 'Peringkas Jurnal',
         icon: Languages,
+      },
+    ],
+  },
+  {
+    title: 'Informasi',
+    items: [
+      {
+        href: '/about',
+        title: 'Tentang',
+        icon: Info,
+      },
+      {
+        href: '/contact',
+        title: 'Kontak',
+        icon: Mail,
       },
     ],
   },
