@@ -10,6 +10,8 @@ import {
   LayoutTemplate,
   Quote,
   Search,
+  Bot,
+  Map,
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -20,42 +22,63 @@ const features = [
     title: 'Brainstorm Topik',
     description:
       'Dapatkan inspirasi dengan ide sub-topik yang relevan untuk mata kuliah apa pun.',
+    href: '/topic-brainstormer',
   },
   {
     icon: <LayoutTemplate className="h-8 w-8" />,
     title: 'Kerangka Presentasi',
     description:
       'Secara instan menghasilkan draf presentasi slide-demi-slide yang logis.',
+    href: '/presentation-outliner',
   },
   {
     icon: <BookCopy className="h-8 w-8" />,
     title: 'Pencari Analogi',
     description:
       'Jelaskan konsep teknis yang kompleks dengan analogi yang sederhana dan jelas.',
+    href: '/analogy-finder',
   },
   {
     icon: <GraduationCap className="h-8 w-8" />,
     title: 'Kerangka Penelitian',
     description:
       'Susun tesis atau proposal penelitian Anda dengan kerangka akademis standar.',
+    href: '/research-outline-generator',
   },
   {
     icon: <Search className="h-8 w-8" />,
     title: 'Pencari Referensi Cerdas',
     description:
       'Temukan kata kunci yang efektif untuk memaksimalkan riset akademis Anda.',
+    href: '/smart-reference-finder',
   },
   {
     icon: <Quote className="h-8 w-8" />,
     title: 'Parafrase Akademik',
     description:
       'Ubah susunan kalimat untuk menghindari plagiarisme sambil mempertahankan makna aslinya.',
+    href: '/academic-paraphraser',
   },
   {
     icon: <Languages className="h-8 w-8" />,
     title: 'Peringkas Jurnal',
     description:
       'Pahami jurnal bahasa Inggris yang kompleks dengan ringkasan yang mudah dibaca dalam bahasa Indonesia.',
+    href: '/summarizer',
+  },
+  {
+    icon: <Bot className="h-8 w-8" />,
+    title: 'Tutor AI',
+    description:
+      'Ajukan pertanyaan tentang materi kuliah Anda dan dapatkan jawaban instan.',
+    href: '/ai-tutor',
+  },
+  {
+    icon: <Map className="h-8 w-8" />,
+    title: 'Peta Jalan Belajar',
+    description:
+      'Buat peta jalan belajar yang terstruktur untuk topik apa pun yang ingin Anda kuasai.',
+    href: '/learning-path-generator',
   },
 ];
 
@@ -78,11 +101,13 @@ export default function Home() {
               rumit, EduAI adalah asisten akademis lengkap untukmu. Atasi
               kebuntuan menulis dan percepat proses belajarmu.
             </p>
-            <Link href="/topic-brainstormer">
-              <Button size="lg">
-                Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
-            </Link>
+            <div className="pt-4">
+              <Link href="/topic-brainstormer">
+                <Button size="lg">
+                  Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
+            </div>
           </div>
           <div className="relative h-64 w-full overflow-hidden rounded-2xl shadow-2xl md:h-96">
             {heroImage && (
@@ -111,22 +136,28 @@ export default function Home() {
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {features.map((feature, index) => (
-                <Card key={index} className="flex flex-col">
-                  <CardHeader className="flex flex-row items-center gap-4">
-                    <div className="rounded-full bg-primary/10 p-3 text-primary">
-                      {feature.icon}
-                    </div>
-                    <CardTitle className="font-headline text-xl">
-                      {feature.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-1">
-                    <p className="text-muted-foreground">
-                      {feature.description}
-                    </p>
-                  </CardContent>
-                </Card>
+              {features.map((feature) => (
+                <Link
+                  href={feature.href}
+                  key={feature.title}
+                  className="flex"
+                >
+                  <Card className="flex flex-1 flex-col transition-all hover:ring-2 hover:ring-primary">
+                    <CardHeader className="flex flex-row items-center gap-4">
+                      <div className="rounded-full bg-primary/10 p-3 text-primary">
+                        {feature.icon}
+                      </div>
+                      <CardTitle className="font-headline text-xl">
+                        {feature.title}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="flex-1">
+                      <p className="text-muted-foreground">
+                        {feature.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
