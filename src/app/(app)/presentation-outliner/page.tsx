@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   title: z
     .string()
-    .min(5, 'Please enter a title with at least 5 characters.')
-    .max(150, 'Title is too long. Please keep it under 150 characters.'),
+    .min(5, 'Silakan masukkan judul dengan minimal 5 karakter.')
+    .max(150, 'Judul terlalu panjang. Harap pertahankan di bawah 150 karakter.'),
 });
 
 export default function PresentationOutlinerPage() {
@@ -48,7 +48,7 @@ export default function PresentationOutlinerPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to generate outline. Please try again.',
+        description: 'Gagal membuat kerangka. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,18 +60,18 @@ export default function PresentationOutlinerPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Presentation Outliner
+          Kerangka Presentasi
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Turn your presentation title into a structured, slide-by-slide
-          outline, from introduction to conclusion.
+          Ubah judul presentasi Anda menjadi kerangka terstruktur, slide demi
+          slide, dari pendahuluan hingga kesimpulan.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Presentation Details
+            Detail Presentasi
           </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -80,15 +80,15 @@ export default function PresentationOutlinerPage() {
                 name="title"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Presentation Title</FormLabel>
+                    <FormLabel>Judul Presentasi</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="e.g., 'The Future of Renewable Energy'"
+                        placeholder="contoh, 'Masa Depan Energi Terbarukan'"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      The main title of your presentation.
+                      Judul utama presentasi Anda.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -100,7 +100,7 @@ export default function PresentationOutlinerPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Generate Outline
+                Buat Kerangka
               </Button>
             </form>
           </Form>
@@ -108,7 +108,7 @@ export default function PresentationOutlinerPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Generated Outline
+            Kerangka yang Dihasilkan
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -125,7 +125,7 @@ export default function PresentationOutlinerPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  Your generated outline will appear here.
+                  Kerangka yang Anda hasilkan akan muncul di sini.
                 </p>
               )}
             </CardContent>

@@ -17,42 +17,45 @@ import Link from 'next/link';
 const features = [
   {
     icon: <BrainCircuit className="h-8 w-8" />,
-    title: 'Topic Brainstormer',
-    description: 'Get inspired with relevant sub-topic ideas for any course.',
+    title: 'Brainstorm Topik',
+    description:
+      'Dapatkan inspirasi dengan ide sub-topik yang relevan untuk mata kuliah apa pun.',
   },
   {
     icon: <LayoutTemplate className="h-8 w-8" />,
-    title: 'Presentation Outliner',
-    description: 'Instantly generate a logical slide-by-slide presentation draft.',
+    title: 'Kerangka Presentasi',
+    description:
+      'Secara instan menghasilkan draf presentasi slide-demi-slide yang logis.',
   },
   {
     icon: <BookCopy className="h-8 w-8" />,
-    title: 'Analogy Finder',
-    description: 'Explain complex technical concepts with simple, clear analogies.',
+    title: 'Pencari Analogi',
+    description:
+      'Jelaskan konsep teknis yang kompleks dengan analogi yang sederhana dan jelas.',
   },
   {
     icon: <GraduationCap className="h-8 w-8" />,
-    title: 'Research Outliner',
+    title: 'Kerangka Penelitian',
     description:
-      'Structure your thesis or research proposal with a standard academic outline.',
+      'Susun tesis atau proposal penelitian Anda dengan kerangka akademis standar.',
   },
   {
     icon: <Search className="h-8 w-8" />,
-    title: 'Smart Reference Finder',
+    title: 'Pencari Referensi Cerdas',
     description:
-      'Discover effective keywords to supercharge your academic research.',
+      'Temukan kata kunci yang efektif untuk memaksimalkan riset akademis Anda.',
   },
   {
     icon: <Quote className="h-8 w-8" />,
-    title: 'Academic Paraphraser',
+    title: 'Parafrase Akademik',
     description:
-      'Rephrase text to avoid plagiarism while preserving its original meaning.',
+      'Ubah susunan kalimat untuk menghindari plagiarisme sambil mempertahankan makna aslinya.',
   },
   {
     icon: <Languages className="h-8 w-8" />,
-    title: 'Journal Summarizer',
+    title: 'Peringkas Jurnal',
     description:
-      'Understand complex English journals with easy-to-read summaries in Indonesian.',
+      'Pahami jurnal bahasa Inggris yang kompleks dengan ringkasan yang mudah dibaca dalam bahasa Indonesia.',
   },
 ];
 
@@ -68,16 +71,16 @@ export default function Home() {
         <section className="container mx-auto grid grid-cols-1 items-center gap-12 px-4 py-16 md:grid-cols-2 lg:py-24">
           <div className="space-y-6">
             <h2 className="font-headline text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
-              Supercharge Your Studies with AI
+              Tingkatkan Kemampuan Belajarmu dengan AI
             </h2>
             <p className="text-lg text-muted-foreground md:text-xl">
-              From brainstorming topics to summarizing complex journals, EduAI
-              is your all-in-one academic assistant. Overcome writer's block and
-              accelerate your learning.
+              Mulai dari brainstorming topik hingga meringkas jurnal yang
+              rumit, EduAI adalah asisten akademis lengkap untukmu. Atasi
+              kebuntuan menulis dan percepat proses belajarmu.
             </p>
             <Link href="/topic-brainstormer">
               <Button size="lg">
-                Get Started <ArrowRight className="ml-2 h-5 w-5" />
+                Mulai Sekarang <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
           </div>
@@ -100,11 +103,11 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <div className="mx-auto mb-12 max-w-2xl text-center">
               <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
-                A Toolkit for Every Student
+                Satu Set Alat untuk Setiap Siswa
               </h3>
               <p className="mt-4 text-lg text-muted-foreground">
-                Everything you need to excel in your academic journey, powered
-                by generative AI.
+                Semua yang Anda butuhkan untuk unggul dalam perjalanan akademis
+                Anda, didukung oleh AI generatif.
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -132,7 +135,7 @@ export default function Home() {
 
       <footer className="container mx-auto border-t px-4 py-6">
         <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} EduAI. All rights reserved.
+          © {new Date().getFullYear()} EduAI. Seluruh hak cipta.
         </p>
       </footer>
     </div>

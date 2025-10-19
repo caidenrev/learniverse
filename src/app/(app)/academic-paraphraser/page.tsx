@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   text: z
     .string()
-    .min(20, 'Please enter at least 20 characters to paraphrase.')
-    .max(1000, 'Text is too long. Please keep it under 1000 characters.'),
+    .min(20, 'Harap masukkan setidaknya 20 karakter untuk parafrase.')
+    .max(1000, 'Teks terlalu panjang. Harap pertahankan di bawah 1000 karakter.'),
 });
 
 export default function AcademicParaphraserPage() {
@@ -48,7 +48,7 @@ export default function AcademicParaphraserPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to paraphrase the text. Please try again.',
+        description: 'Gagal memparafrasekan teks. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,19 +60,17 @@ export default function AcademicParaphraserPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Academic Paraphraser
+          Parafrase Akademik
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Avoid plagiarism and improve your academic writing. Paste a sentence
-          or paragraph to get a rephrased version.
+          Hindari plagiarisme dan tingkatkan tulisan akademis Anda. Tempelkan
+          kalimat atau paragraf untuk mendapatkan versi yang disusun ulang.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
-          <h2 className="font-headline text-2xl font-semibold">
-            Original Text
-          </h2>
+          <h2 className="font-headline text-2xl font-semibold">Teks Asli</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
@@ -80,16 +78,17 @@ export default function AcademicParaphraserPage() {
                 name="text"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Text from a journal or paper</FormLabel>
+                    <FormLabel>Teks dari jurnal atau makalah</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Paste the text you want to rephrase here..."
+                        placeholder="Tempelkan teks yang ingin Anda susun ulang di sini..."
                         className="min-h-[200px]"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      The model will rewrite this text in a different style.
+                      Model akan menulis ulang teks ini dengan gaya yang
+                      berbeda.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -101,7 +100,7 @@ export default function AcademicParaphraserPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Paraphrase Text
+                Parafrase Teks
               </Button>
             </form>
           </Form>
@@ -109,7 +108,7 @@ export default function AcademicParaphraserPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Paraphrased Version
+            Versi Parafrasa
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -123,7 +122,7 @@ export default function AcademicParaphraserPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  The paraphrased text will appear here.
+                  Teks yang diparafrasekan akan muncul di sini.
                 </p>
               )}
             </CardContent>

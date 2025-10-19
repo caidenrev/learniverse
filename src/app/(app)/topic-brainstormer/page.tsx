@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   courseOrTheme: z
     .string()
-    .min(10, 'Please enter a course or theme with at least 10 characters.')
-    .max(100, 'Input is too long. Please keep it under 100 characters.'),
+    .min(10, 'Silakan masukkan mata kuliah atau tema dengan minimal 10 karakter.')
+    .max(100, 'Input terlalu panjang. Harap pertahankan di bawah 100 karakter.'),
 });
 
 export default function TopicBrainstormerPage() {
@@ -48,8 +48,7 @@ export default function TopicBrainstormerPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description:
-          'Failed to generate ideas. Please try again.',
+        description: 'Gagal menghasilkan ide. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -61,17 +60,18 @@ export default function TopicBrainstormerPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Topic Brainstormer
+          Brainstorm Topik
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Stuck on where to start? Enter a course or a broad theme, and let AI
-          generate interesting sub-topic ideas for your next project.
+          Bingung mau mulai dari mana? Masukkan mata kuliah atau tema umum, dan
+          biarkan AI menghasilkan ide sub-topik menarik untuk proyek Anda
+          selanjutnya.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
-          <h2 className="font-headline text-2xl font-semibold">Your Topic</h2>
+          <h2 className="font-headline text-2xl font-semibold">Topik Anda</h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
@@ -79,16 +79,16 @@ export default function TopicBrainstormerPage() {
                 name="courseOrTheme"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Course or Theme</FormLabel>
+                    <FormLabel>Mata Kuliah atau Tema</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="e.g., 'Cybersecurity for beginners' or 'The impact of social media on society'"
+                        placeholder="contoh, 'Keamanan siber untuk pemula' atau 'Dampak media sosial pada masyarakat'"
                         className="min-h-[120px]"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Provide a theme for your paper, essay, or presentation.
+                      Berikan tema untuk makalah, esai, atau presentasi Anda.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -100,7 +100,7 @@ export default function TopicBrainstormerPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Generate Ideas
+                Hasilkan Ide
               </Button>
             </form>
           </Form>
@@ -108,7 +108,7 @@ export default function TopicBrainstormerPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Generated Ideas
+            Ide yang Dihasilkan
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -126,7 +126,7 @@ export default function TopicBrainstormerPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  Your generated ideas will appear here.
+                  Ide yang Anda hasilkan akan muncul di sini.
                 </p>
               )}
             </CardContent>

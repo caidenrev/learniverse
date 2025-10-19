@@ -24,8 +24,8 @@ import { Badge } from '@/components/ui/badge';
 const formSchema = z.object({
   searchTerm: z
     .string()
-    .min(3, 'Please enter a term with at least 3 characters.')
-    .max(100, 'Term is too long. Please keep it under 100 characters.'),
+    .min(3, 'Silakan masukkan istilah dengan setidaknya 3 karakter.')
+    .max(100, 'Istilah terlalu panjang. Harap pertahankan di bawah 100 karakter.'),
 });
 
 export default function SmartReferenceFinderPage() {
@@ -48,7 +48,7 @@ export default function SmartReferenceFinderPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to find keywords. Please try again.',
+        description: 'Gagal menemukan kata kunci. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,18 +60,19 @@ export default function SmartReferenceFinderPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Smart Reference Finder
+          Pencari Referensi Cerdas
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Enhance your Google Scholar searches. Get alternative and related
-          keywords to find the most relevant academic references.
+          Tingkatkan pencarian Google Scholar Anda. Dapatkan kata kunci
+          alternatif dan terkait untuk menemukan referensi akademis yang paling
+          relevan.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Initial Term
+            Istilah Awal
           </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -80,15 +81,15 @@ export default function SmartReferenceFinderPage() {
                 name="searchTerm"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Search Term or Concept</FormLabel>
+                    <FormLabel>Istilah atau Konsep Pencarian</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="e.g., 'customer satisfaction' or 'mobile app usability'"
+                        placeholder="misalnya, 'kepuasan pelanggan' atau 'kegunaan aplikasi seluler'"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Enter a term to find related keywords.
+                      Masukkan istilah untuk menemukan kata kunci terkait.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -100,7 +101,7 @@ export default function SmartReferenceFinderPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Find Keywords
+                Temukan Kata Kunci
               </Button>
             </form>
           </Form>
@@ -108,7 +109,7 @@ export default function SmartReferenceFinderPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Suggested Keywords
+            Kata Kunci yang Disarankan
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -128,7 +129,7 @@ export default function SmartReferenceFinderPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  Your generated keywords will appear here.
+                  Kata kunci yang Anda hasilkan akan muncul di sini.
                 </p>
               )}
             </CardContent>

@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   text: z
     .string()
-    .min(50, 'Please enter at least 50 characters to summarize.')
-    .max(3000, 'Text is too long. Please keep it under 3000 characters.'),
+    .min(50, 'Harap masukkan setidaknya 50 karakter untuk diringkas.')
+    .max(3000, 'Teks terlalu panjang. Harap pertahankan di bawah 3000 karakter.'),
 });
 
 export default function SummarizerPage() {
@@ -48,7 +48,7 @@ export default function SummarizerPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to summarize the text. Please try again.',
+        description: 'Gagal meringkas teks. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,18 +60,19 @@ export default function SummarizerPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Journal Summarizer
+          Peringkas Jurnal
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Understand complex English academic journals quickly. Get key points
-          summarized in easy-to-understand Bahasa Indonesia.
+          Pahami jurnal akademis berbahasa Inggris yang kompleks dengan cepat.
+          Dapatkan poin-poin penting yang diringkas dalam Bahasa Indonesia yang
+          mudah dipahami.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            English Text
+            Teks Bahasa Inggris
           </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -81,17 +82,17 @@ export default function SummarizerPage() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      Abstract or text from an English journal
+                      Abstrak atau teks dari jurnal berbahasa Inggris
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Paste the abstract or a section of the journal here..."
+                        placeholder="Tempel abstrak atau bagian dari jurnal di sini..."
                         className="min-h-[200px]"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      The AI will read this and provide a summary in Bahasa
+                      AI akan membaca ini dan memberikan ringkasan dalam Bahasa
                       Indonesia.
                     </FormDescription>
                     <FormMessage />
@@ -104,7 +105,7 @@ export default function SummarizerPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Summarize
+                Ringkas
               </Button>
             </form>
           </Form>
@@ -112,7 +113,7 @@ export default function SummarizerPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Summary (in Bahasa Indonesia)
+            Ringkasan (dalam Bahasa Indonesia)
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -129,7 +130,7 @@ export default function SummarizerPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  The summary will appear here.
+                  Ringkasan akan muncul di sini.
                 </p>
               )}
             </CardContent>

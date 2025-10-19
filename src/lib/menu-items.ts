@@ -22,46 +22,46 @@ interface MenuGroup {
 
 export const menuItems: MenuGroup[] = [
   {
-    title: 'Idea Catalyst',
+    title: 'Katalisator Ide',
     items: [
       {
         href: '/topic-brainstormer',
-        title: 'Topic Brainstormer',
+        title: 'Brainstorm Topik',
         icon: BrainCircuit,
       },
       {
         href: '/presentation-outliner',
-        title: 'Presentation Outliner',
+        title: 'Kerangka Presentasi',
         icon: LayoutTemplate,
       },
       {
         href: '/analogy-finder',
-        title: 'Analogy Finder',
+        title: 'Pencari Analogi',
         icon: BookCopy,
       },
     ],
   },
   {
-    title: 'Research Assistant',
+    title: 'Asisten Riset',
     items: [
       {
         href: '/research-outline-generator',
-        title: 'Research Outliner',
+        title: 'Kerangka Penelitian',
         icon: GraduationCap,
       },
       {
         href: '/smart-reference-finder',
-        title: 'Reference Finder',
+        title: 'Pencari Referensi',
         icon: BookMarked,
       },
       {
         href: '/academic-paraphraser',
-        title: 'Academic Paraphraser',
+        title: 'Parafrase Akademik',
         icon: Quote,
       },
       {
         href: '/summarizer',
-        title: 'Journal Summarizer',
+        title: 'Peringkas Jurnal',
         icon: Languages,
       },
     ],

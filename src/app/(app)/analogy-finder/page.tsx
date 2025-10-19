@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   technicalConcept: z
     .string()
-    .min(3, 'Please enter a concept with at least 3 characters.')
-    .max(100, 'Concept is too long. Please keep it under 100 characters.'),
+    .min(3, 'Silakan masukkan konsep dengan setidaknya 3 karakter.')
+    .max(100, 'Konsep terlalu panjang. Harap pertahankan di bawah 100 karakter.'),
 });
 
 export default function AnalogyFinderPage() {
@@ -48,7 +48,7 @@ export default function AnalogyFinderPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to find an analogy. Please try again.',
+        description: 'Gagal menemukan analogi. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,18 +60,18 @@ export default function AnalogyFinderPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Analogy Finder
+          Pencari Analogi
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Struggling to explain a complex topic? Find a simple analogy to make
-          any technical concept easy to understand.
+          Kesulitan menjelaskan topik yang rumit? Temukan analogi sederhana
+          untuk membuat konsep teknis apa pun mudah dipahami.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            The Concept
+            Konsepnya
           </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -80,15 +80,15 @@ export default function AnalogyFinderPage() {
                 name="technicalConcept"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Technical Concept</FormLabel>
+                    <FormLabel>Konsep Teknis</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="e.g., 'What is an API?' or 'Explain blockchain'"
+                        placeholder="misalnya, 'Apa itu API?' atau 'Jelaskan blockchain'"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      Enter the complex idea you want to simplify.
+                      Masukkan ide kompleks yang ingin Anda sederhanakan.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -100,7 +100,7 @@ export default function AnalogyFinderPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Find Analogy
+                Temukan Analogi
               </Button>
             </form>
           </Form>
@@ -108,7 +108,7 @@ export default function AnalogyFinderPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Generated Analogy
+            Analogi yang Dihasilkan
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -122,7 +122,7 @@ export default function AnalogyFinderPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  Your generated analogy will appear here.
+                  Analogi yang Anda hasilkan akan muncul di sini.
                 </p>
               )}
             </CardContent>

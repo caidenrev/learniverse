@@ -24,8 +24,8 @@ import { Loader2, Wand2 } from 'lucide-react';
 const formSchema = z.object({
   topic: z
     .string()
-    .min(10, 'Please enter a topic with at least 10 characters.')
-    .max(200, 'Topic is too long. Please keep it under 200 characters.'),
+    .min(10, 'Silakan masukkan topik dengan setidaknya 10 karakter.')
+    .max(200, 'Topik terlalu panjang. Harap pertahankan di bawah 200 karakter.'),
 });
 
 export default function ResearchOutlineGeneratorPage() {
@@ -48,7 +48,7 @@ export default function ResearchOutlineGeneratorPage() {
       console.error(error);
       toast({
         title: 'Error',
-        description: 'Failed to generate outline. Please try again.',
+        description: 'Gagal membuat kerangka. Silakan coba lagi.',
         variant: 'destructive',
       });
     } finally {
@@ -60,18 +60,19 @@ export default function ResearchOutlineGeneratorPage() {
     <div className="space-y-8">
       <div>
         <h1 className="font-headline text-3xl font-bold md:text-4xl">
-          Research Outliner
+          Kerangka Penelitian
         </h1>
         <p className="mt-2 text-muted-foreground">
-          Kickstart your thesis or research paper. Provide a topic and get a
-          draft structure commonly used in Indonesian universities.
+          Mulailah skripsi atau makalah penelitian Anda. Berikan topik dan
+          dapatkan draf struktur yang umum digunakan di universitas-universitas
+          Indonesia.
         </p>
       </div>
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Research Topic
+            Topik Penelitian
           </h2>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -80,15 +81,15 @@ export default function ResearchOutlineGeneratorPage() {
                 name="topic"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Main Topic</FormLabel>
+                    <FormLabel>Topik Utama</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="e.g., 'Sentiment Analysis of E-Commerce Users in Indonesia'"
+                        placeholder="misalnya, 'Analisis Sentimen Pengguna E-Commerce di Indonesia'"
                         {...field}
                       />
                     </FormControl>
                     <FormDescription>
-                      The core subject of your research proposal or thesis.
+                      Subjek inti dari proposal penelitian atau skripsi Anda.
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
@@ -100,7 +101,7 @@ export default function ResearchOutlineGeneratorPage() {
                 ) : (
                   <Wand2 className="mr-2 h-4 w-4" />
                 )}
-                Generate Outline
+                Buat Kerangka
               </Button>
             </form>
           </Form>
@@ -108,7 +109,7 @@ export default function ResearchOutlineGeneratorPage() {
 
         <div className="space-y-4">
           <h2 className="font-headline text-2xl font-semibold">
-            Generated Outline (in Bahasa Indonesia)
+            Kerangka yang Dihasilkan (dalam Bahasa Indonesia)
           </h2>
           <Card className="min-h-[240px]">
             <CardContent className="p-6">
@@ -125,7 +126,7 @@ export default function ResearchOutlineGeneratorPage() {
               )}
               {!isLoading && !result && (
                 <p className="pt-16 text-center text-muted-foreground">
-                  Your generated outline will appear here.
+                  Kerangka yang Anda hasilkan akan muncul di sini.
                 </p>
               )}
             </CardContent>
