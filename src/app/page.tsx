@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -169,7 +170,7 @@ export default function Home() {
               <h3 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
                 Tentang EduAI
               </h3>
-              <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
+              <p className="mt-6 text-base leading-relaxed text-muted-foreground">
                 EduAI lahir dari gagasan untuk membuat teknologi AI canggih
                 dapat diakses oleh semua siswa. Kami percaya bahwa dengan alat
                 yang tepat, setiap orang dapat mengatasi tantangan akademis,
