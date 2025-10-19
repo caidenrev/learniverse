@@ -1,0 +1,138 @@
+'use client';
+
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { Button } from '@/components/ui/button';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
+import { Textarea } from '@/components/ui/textarea';
+import { Card, CardContent } from '@/components/ui/card';
+import { useToast } from '@/hooks/use-toast';
+import { topicBrainstormer } from '@/ai/flows/topic-brainstormer';
+import type { TopicBrainstormerOutput } from '@/ai/flows/topic-brainstormer';
+import { Loader2, Wand2 } from 'lucide-react';
+
+const formSchema = z.object({
+  courseOrTheme: z
+    .string()
+    .min(10, 'Please enter a course or theme with at least 10 characters.')
+    .max(100, 'Input is too long. Please keep it under 100 characters.'),
+});
+
+export default function TopicBrainstormerPage() {
+  const [result, setResult] = useState<TopicBrainstormerOutput | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: { courseOrTheme: '' },
+  });
+
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsLoading(true);
+    setResult(null);
+    try {
+      const response = await topicBrainstormer(values);
+      setResult(response);
+    } catch (error) {
+      console.error(error);
+      toast({
+        title: 'Error',
+        description:
+          'Failed to generate ideas. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  return (
+    <div className="space-y-8">
+      <div>
+        <h1 className="font-headline text-3xl font-bold md:text-4xl">
+          Topic Brainstormer
+        </h1>
+        <p className="mt-2 text-muted-foreground">
+          Stuck on where to start? Enter a course or a broad theme, and let AI
+          generate interesting sub-topic ideas for your next project.
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <div className="space-y-4">
+          <h2 className="font-headline text-2xl font-semibold">Your Topic</h2>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="courseOrTheme"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Course or Theme</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="e.g., 'Cybersecurity for beginners' or 'The impact of social media on society'"
+                        className="min-h-[120px]"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormDescription>
+                      Provide a theme for your paper, essay, or presentation.
+                    </FormDescription>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit" disabled={isLoading}>
+                {isLoading ? (
+                  <Loader2 className="animate-spin" />
+                ) : (
+                  <Wand2 className="mr-2 h-4 w-4" />
+                )}
+                Generate Ideas
+              </Button>
+            </form>
+          </Form>
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="font-headline text-2xl font-semibold">
+            Generated Ideas
+          </h2>
+          <Card className="min-h-[240px]">
+            <CardContent className="p-6">
+              {isLoading && (
+                <div className="flex items-center justify-center pt-16">
+                  <Loader2 className="h-10 w-10 animate-spin text-primary" />
+                </div>
+              )}
+              {result && (
+                <ul className="list-inside list-disc space-y-2">
+                  {result.subTopicIdeas.map((idea, index) => (
+                    <li key={index}>{idea}</li>
+                  ))}
+                </ul>
+              )}
+              {!isLoading && !result && (
+                <p className="pt-16 text-center text-muted-foreground">
+                  Your generated ideas will appear here.
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    </div>
+  );
+}
