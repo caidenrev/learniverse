@@ -83,7 +83,7 @@ export default function AnalogyFinderPage() {
                     <FormLabel>Konsep Teknis</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder="misalnya, 'Apa itu API?' atau 'Jelaskan blockchain'"
+                        placeholder="misalnya, 'Apa itu API?'"
                         {...field}
                       />
                     </FormControl>
