@@ -4,7 +4,7 @@ import {
   LayoutTemplate,
   BookCopy,
   GraduationCap,
-  BookMarked,
+  Search,
   Quote,
   Languages,
   Bot,
@@ -70,8 +70,8 @@ export const menuItems: MenuGroup[] = [
       },
       {
         href: '/smart-reference-finder',
-        title: 'Pencari Referensi',
-        icon: BookMarked,
+        title: 'Pencari Referensi Cerdas',
+        icon: Search,
       },
       {
         href: '/academic-paraphraser',
